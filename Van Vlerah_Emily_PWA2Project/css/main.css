@@ -156,7 +156,7 @@ button[class="projectsbtn"]:hover {
     border: 1px solid #d95859;
     box-shadow: 1px 1px 5px #8C7C71;}
 
-button[class="taskssbtn"] {
+button[class="tasksbtn"] {
     background: linear-gradient(to bottom, #f3ece0 0%,#fe9090 23%,#b93739 100%);    border: 1px solid #b93739;
     color: #000;
     padding: 5px;

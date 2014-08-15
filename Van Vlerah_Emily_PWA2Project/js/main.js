@@ -13,15 +13,15 @@
 
     $('.close').on('click', function(event){
         event.preventDefault();
-        $('#overlay').fadeIn().find('#modal').fadeIn();
+        $('#overlay').fadeOut().find('#modal').fadeOut();
     });
 
 /****** Fade Status Option ******/
-    $('.mystatus').mouseover(funtion() {
-        $(this).fadeOut(100, .3);
+    $('.mystatus').mouseover(function() {
+        $(this).fadeTo(100, .3);
     });
 
-    $('.mystatus').mouseout(funtion() {
+    $('.mystatus').mouseout(function() {
         $(this).fadeTo(100, 1);
     });
 
@@ -30,7 +30,7 @@
     $('#tabs p').hide().eq(0).show();
     $('#tabs p:not(:first)').hide();
 
-    $('#tabs-nav li').click(funtion(e) {
+    $('#tabs-nav li').click(function(e) {
         e.preventDefault();
         $('#tabs p').hide();
 
@@ -38,8 +38,9 @@
             $(this).addClass('current');
             var clicked = $(this).find('a:first').attr('href');
 
-            $('#tabs' + clicked).fadeIn('fast');
+            $('#tabs ' + clicked).fadeIn('fast');
     }).eq(0).addClass('current');
+
 
 
 })(jQuery);
