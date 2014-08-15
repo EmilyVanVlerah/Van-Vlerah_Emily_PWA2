@@ -5,20 +5,63 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-<div class="img">
-    <img src="images/logo.jpg" alt="Omni Flowers Logo" title="Omni Flowers Logo" />
-</div><br/>
+<header>
+    <div class="img">
+        <img src="images/logo.jpg" alt="Omni Flowers Logo" title="Omni Flowers Logo" />
+    </div><br/>
+
+    <div class="userid">
+        Welcome User:
+    </div>
+
+    <div class="logoutbox">
+        <button class="dashboard">Dashboard</button>
+        <input name="logOut" type="button" id="logOut" value="Sign Out">
+    </div>
+</header>
+
+<br/>
+
 <div id="content">
     <fieldset>
         <h2>Welcome!</h2>
         <p>This is your dashboard. You can edit your account or begin a purchase.</p>
     </fieldset>
-    <br/><br/>
 </div>
+
+<div>
+    <ul id="tabs-nav">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#users">Users</a></li>
+    </ul>
+
+    <div id="tabs">
+        <p id="projects">
+            You can add new arrangements or gifts to you projects page.
+            Here you can customize what you want your special gift will be for your loved one.<br/><br/>
+            <button class="projectsbtn">Projects</button>
+        </p>
+
+        <p id="tasks">
+            Here is your task bar.<br/><br/>
+            <button class="taskssbtn">Tasks</button>
+        </p>
+
+        <p id="users">
+            Here you can connect with users or customers of ours. Hear the stories of their gift
+            and our services.<br/><br/>
+            <button class="usersbtn">Users</button>
+        </p>
+    </div>
+</div>
+
 <div id="footer">
-    <p style="font-size: 12pt; text-align: center;"> &#64;2014 Omni Flowers (this is a educational site made by a student)</p>
-</div></div>
+    <p> &#64;2014 Omni Flowers (this is a educational site made by a student)</p>
+</div>
 </body>
 </html>
