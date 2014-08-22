@@ -51,7 +51,7 @@
                     alert(response.error);
                 }else{
                     window.location.assign('projects.html');
-                };
+                }
             }
         });
     });
@@ -239,14 +239,20 @@ $('#register').click(function(){
 /****** Add Button ******/
     $('.addButton').on('click', function(e){
         e.preventDefault();
-        window.location.assign('#list');
+        window.location.assign('#projects');
     });
 
 
 /****** Dashboard Button ******/
-    $('.dashboardbtn').on('click', function(e){
+    $('.dashboard').on('click', function(e){
         e.preventDefault();
         window.location.assign('admin.html');
+    });
+
+/****** Sign Up Button ******/
+    $('.signupButton').on('click', function(e){
+        e.preventDefault();
+        window.location.assign('register.html');
     });
 
 
