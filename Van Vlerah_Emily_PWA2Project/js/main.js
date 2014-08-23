@@ -1,7 +1,10 @@
 /**
- * Name: Emily Van Vlerah
+ Name: Emily Van Vlerah
  PWA2 1408
  */
+
+
+
 
 (function($){
 
@@ -98,7 +101,7 @@
                                     console.log(response.error);
                                 }else{
                                     window.location.assign('projects.html');
-                                };
+                                }
                             }
                         });
                     });
@@ -239,7 +242,7 @@ $('#register').click(function(){
 /****** Add Button ******/
     $('.addButton').on('click', function(e){
         e.preventDefault();
-        window.location.assign('#projects');
+        window.location.assign('#projectsList');
     });
 
 
