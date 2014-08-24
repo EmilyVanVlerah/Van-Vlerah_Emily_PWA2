@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery.getJSON demo</title>
+        <style>
+            img {
+                height: <span>100px;</span>
+            float: left;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+    <body>
+    <div id="images"></div>
+
+    <script>
+        /*Start of the function below*/
+        (function() {
+
+            /*Flicker variable with links passing into the variable*/
+            var flickerAPI = "<a href="<a href=">http://api.flickr.com/services/feeds/photos_public...</a>"><a href="http://api.flickr.com/services/feeds/photos_public...">http://api.flickr.com/services/feeds/photos_public...</a>
+
+            /*Start of get JSON function passing the Flicker variable in (promise interface)*/
+            $.getJSON( flickerAPI, {
+
+                /*tags is the key and 'mount rainier' is the value*/
+                tags: "mount rainier",
+
+                /*tagmode is the key and 'any' is the value*/
+                tagmode: "any",
+
+                /*format is the key and 'json' is the value*/
+                format: "json"
+
+            })/*close of the get JSON funtion*/
+
+                    /*start of the callback function after JSON*/
+                    .done(function( data ) {
+
+                        /*made to loop through the DOM and find the information needed*/
+                        $.each( data.items, function( i, item ) {
+
+                            /*attribute is to get the value of the photos and the each is to loop this action to get more values for the the other images*/
+                            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+
+                            /*if conditional saying i must be equal to 3*/
+                            if ( i === 3 ) {
+
+                                /*if i is equal to 3 the conditional returns back false*/
+                                return false;
+
+                            }/*close of the if*/
+
+                        });/*close of .each loop*/
+
+                    });/*close of .done callback*/
+        })();
+    </script>
+
+    </body>
+    </html>
+
