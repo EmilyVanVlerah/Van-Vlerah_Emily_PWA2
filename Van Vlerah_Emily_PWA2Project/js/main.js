@@ -19,6 +19,9 @@
         $('#overlay').fadeOut().find('#modal').fadeOut();
     });
 
+    /* $( "#projectDueDate" ).datepicker();            Date picker for on the modal*/
+
+
 /****** Fade Status Option ******/
     $('.mystatus').mouseover(function() {
         $(this).fadeTo(100, .3);
@@ -32,7 +35,8 @@
 /****** New Projects ******/
     $('#addButton').on('click', function(){
         var projName = $('#projectName').val(),
-            projDesc = $('#projectDescription').val(),
+            projFlo = $('#projectFlowers').val(),
+            projAcc = $('#projectAccents').val(),
             projDue = $('#projectDueDate').val(),
             status = $('input[name = "status"]:checked').prop("id");
 
@@ -42,7 +46,8 @@
             dataType: 'json',
             data: {
                 projectName: projName,
-                projectDescription: projDesc,
+                projectFlowers: projFlo,
+                projectAccents: projAcc,
                 dueDate: projDue,
                 status: status
 
@@ -61,9 +66,9 @@
 
 
 /****** Get Projects ******/
-    var projects = function(){
+    var projects = function(){  //this starts your variable so you need projects(); to end your variable. Look at bottom 
         $.ajax({
-            url: 'xhr/get_project.php',
+            url: 'xhr/get_projects.php', //added an s
             type: 'get',
             dataType: 'json',
             success:function(response){
@@ -71,13 +76,15 @@
                     console.log(response.error);
                 }else{
                     for(var i= 0, j=response.projects.length; i < j; i++){
-                      var result = response.project[i];
+                      var result = response.projects[i]; //added an s
 
-                      $('.projects').append(
-                          '<div style = "border: 1px solid black">' +
+                      $('.projects').append(  //This refers to the div on your projects.html page
+                          '<div style = "border: 5px solid #a4a063">' + '<div style = "padding: 5px">' +
                           "<input class='projectid' type='hidden' value='" + result.id + "'>" +
                           "Project Name: " + result.projectName + "<br>" +
-                          "Project Description: " + result.projectDescription + "<br>" +
+                          "Project Flowers: " + result.projectFlowers + "<br>" +
+                          "Project Accents: " + result.projectAccents + "<br>" +
+                          "Project Due Date: " + result.projectDueDate + "<br>" +
                           "Project Status: " + result.status + "<br>"
                           + '<button class="deletebtn">Delete</button>'
                           + '<button class="editbtn">Edit</button>'
@@ -85,7 +92,7 @@
                       );
                     };
 
-                    $('deletebtn').on('click', function(e){
+                    $('.deletebtn').on('click', function(e){//Forgot the period in front of the deletebtn..thats what makes it a class.
                        console.log('test delete');
                         $.ajax({
                             url: 'xhr/delete_project.php',
@@ -94,22 +101,34 @@
                             },
                             type: 'POST',
                             dataType: 'json',
-                            success:function(response){
+                            success: function(response){
                                 console.log('Testing for success');
 
                                 if(response.error){
                                     console.log(response.error);
                                 }else{
                                     window.location.assign('projects.html');
-                                }
+                                };
                             }
                         });
                     });
-                }
-            }
-        })
-    };
+ 
+            }	
+        }
+    })
+}
+projects();     //Had to add this.
 
+
+   /* $( ".projects" ).sortable({
+        revert: true
+    });
+    $( ".projects" ).draggable({
+        connectToSortable: ".projects",
+        helper: "clone",
+        revert: "invalid"
+    });
+    $( "ul, li" ).disableSelection();        Dragdrop + sortable*/
 
 
 
@@ -132,7 +151,7 @@
             $('#tabs ' + clicked).fadeIn('fast');
     }).eq(0).addClass('current');
 
-
+   /* $( "#tabs" ).tabs();     effect on tabs*/
 
 
 
@@ -225,13 +244,6 @@ $('#register').click(function(){
     });
 
 
-/****** Tasks Page Button ******/
-    $('.tasksbtn').on('click', function(e){
-        e.preventDefault();
-        window.location.assign('tasks.html');
-    });
-
-
 /****** Profile Page Button ******/
     $('.profilebtn').on('click', function(e){
         e.preventDefault();
@@ -274,6 +286,54 @@ $('#register').click(function(){
             $(".userid").html("Welcome User: " + val.first_name);
         })
     });
+
+
+
+
+
+
+
+/****** Profile Page ******/
+
+$(function() {
+    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+});
+/*$( "#resizable" ).resizable({
+    handles: "se"
+});                                (resizing text fields)
+
+
+ var availableTags = [
+     "ActionScript",
+     "AppleScript",
+     "Asp",
+     "BASIC",
+     "C",
+     "C++",
+     "Clojure",
+     "COBOL",
+     "ColdFusion",
+     "Erlang",
+     "Fortran",
+     "Groovy",
+     "Haskell",
+     "Java",
+     "JavaScript",
+     "Lisp",
+     "Perl",
+     "PHP",
+     "Python",
+     "Ruby",
+     "Scala",
+     "Scheme"
+ ];
+ $( "#tags" ).autocomplete({
+ source: availableTags
+ });                              (scrollable results - autocomplete)
+
+
+*/
 
 
 
