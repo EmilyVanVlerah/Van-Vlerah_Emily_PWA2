@@ -19,11 +19,16 @@
         $('#overlay').fadeOut().find('#modal').fadeOut();
     });
 
-    /* $( "#projectDueDate" ).datepicker();            Date picker for on the modal*/
+
+
+    /* Date picker for on the modal*/
 
     $(function() {
         $( "#projectDueDate" ).datepicker();
     });
+
+
+
 
 
 /****** Fade Status Option ******/
@@ -299,45 +304,46 @@ $('#register').click(function(){
 
 /****** Profile Page ******/
 
-$(function() {
-    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-});
-/*$( "#resizable" ).resizable({
-    handles: "se"
-});                                (resizing text fields)
+    $(function() {
+        $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+        $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+    });
+
+    /*$( "#resizable" ).resizable({
+        handles: "se"
+    });                                (resizing text fields)
 
 
- var availableTags = [
-     "ActionScript",
-     "AppleScript",
-     "Asp",
-     "BASIC",
-     "C",
-     "C++",
-     "Clojure",
-     "COBOL",
-     "ColdFusion",
-     "Erlang",
-     "Fortran",
-     "Groovy",
-     "Haskell",
-     "Java",
-     "JavaScript",
-     "Lisp",
-     "Perl",
-     "PHP",
-     "Python",
-     "Ruby",
-     "Scala",
-     "Scheme"
- ];
- $( "#tags" ).autocomplete({
- source: availableTags
- });                              (scrollable results - autocomplete)
+     var availableTags = [
+         "Alabama",
+         "Alaska",
+         "Arizona",
+         "Arkansas",
+         "California",
+         "Colorado",
+         "Connecticut",
+         "Delaware",
+         "ColdFusion",
+         "Erlang",
+         "Fortran",
+         "Groovy",
+         "Haskell",
+         "Java",
+         "JavaScript",
+         "Lisp",
+         "Perl",
+         "PHP",
+         "Python",
+         "Ruby",
+         "Scala",
+         "Scheme"
+     ];
+     $( "#tags" ).autocomplete({
+     source: availableTags
+     });                              (scrollable results - autocomplete)
 
 
-*/
+    */
 
 
 

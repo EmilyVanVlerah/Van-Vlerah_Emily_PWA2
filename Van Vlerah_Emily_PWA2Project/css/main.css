@@ -91,12 +91,56 @@ div.project{
 
 
 /*input fields*/
-input[type="text"]{
+input[id="first"]{
     border: 1px solid #a4a063;
     padding: 2px;}
-input[type="text"]:hover{
+input[id="first"]:hover{
     background-color: #E5E2B5;
     border: 1px solid #a4a063;}
+
+input[id="last"]{
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="last"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
+input[id="userName"]{
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="userName"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
+input[id="email"]{
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="email"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
+input[id="confirmEmail"]{
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="confirmEmail"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
+input[id="address"]{
+    width: 250px;
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="address"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
+input[id="city"]{
+    border: 1px solid #a4a063;
+    padding: 2px;}
+input[id="city"]:hover{
+    background-color: #E5E2B5;
+    border: 1px solid #a4a063;}
+
 input[type="password"]{
     border: 1px solid #a4a063;
     padding: 2px;}
