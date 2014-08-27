@@ -21,6 +21,10 @@
 
     /* $( "#projectDueDate" ).datepicker();            Date picker for on the modal*/
 
+    $(function() {
+        $( "#projectDueDate" ).datepicker();
+    });
+
 
 /****** Fade Status Option ******/
     $('.mystatus').mouseover(function() {
