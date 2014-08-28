@@ -129,15 +129,10 @@
 projects();     //Had to add this.
 
 
-   /* $( ".projects" ).sortable({
-        revert: true
+    $(function() {
+        $( "#projectList" ).sortable();
+        $( "#projectList" ).disableSelection();
     });
-    $( ".projects" ).draggable({
-        connectToSortable: ".projects",
-        helper: "clone",
-        revert: "invalid"
-    });
-    $( "ul, li" ).disableSelection();        Dragdrop + sortable*/
 
 
 
@@ -160,7 +155,9 @@ projects();     //Had to add this.
             $('#tabs ' + clicked).fadeIn('fast');
     }).eq(0).addClass('current');
 
-   /* $( "#tabs" ).tabs();     effect on tabs*/
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
 
 
 
@@ -279,6 +276,12 @@ $('#register').click(function(){
         window.location.assign('register.html');
     });
 
+/****** Sign Up Button ******/
+    $('.save').on('click', function(e){
+        e.preventDefault();
+        window.location.assign('profile.html');
+    });
+
 
 
 
@@ -305,45 +308,70 @@ $('#register').click(function(){
 /****** Profile Page ******/
 
     $(function() {
-        $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-        $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+        $( "#info" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+        $( "#info li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+
+
+
+         var availableTags = [
+             "Alabama",
+             "Alaska",
+             "Arizona",
+             "Arkansas",
+             "California",
+             "Colorado",
+             "Connecticut",
+             "Delaware",
+             "Florida",
+             "Georgia",
+             "Hawaii",
+             "Idaho",
+             "Illinois",
+             "Indiana",
+             "Iowa",
+             "Kansas",
+             "Kentucky",
+             "Louisiana",
+             "Maine",
+             "Maryland",
+             "Massachusetts",
+             "Michigan",
+             "Minnesota",
+             "Mississippi",
+             "Missouri",
+             "Montana",
+             "Nebraska",
+             "Nevada",
+             "New Hampshire",
+             "New Jersey",
+             "New Mexico",
+             "New York",
+             "North Carolina",
+             "North Dakota",
+             "Ohio",
+             "Oklahoma",
+             "Oregon",
+             "Pennsylvania",
+             "Rhode Island",
+             "South Carolina",
+             "South Dakota",
+             "Tennessee",
+             "Texas",
+             "Utah",
+             "Vermont",
+             "Virginia",
+             "Washington",
+             "West Virginia",
+             "Wisconsin",
+             "Wyoming"
+         ];
+
+         $( "#state" ).autocomplete({
+         source: availableTags
+         });
+
+
     });
-
-    /*$( "#resizable" ).resizable({
-        handles: "se"
-    });                                (resizing text fields)
-
-
-     var availableTags = [
-         "Alabama",
-         "Alaska",
-         "Arizona",
-         "Arkansas",
-         "California",
-         "Colorado",
-         "Connecticut",
-         "Delaware",
-         "ColdFusion",
-         "Erlang",
-         "Fortran",
-         "Groovy",
-         "Haskell",
-         "Java",
-         "JavaScript",
-         "Lisp",
-         "Perl",
-         "PHP",
-         "Python",
-         "Ruby",
-         "Scala",
-         "Scheme"
-     ];
-     $( "#tags" ).autocomplete({
-     source: availableTags
-     });                              (scrollable results - autocomplete)
-
-
-    */
 
 
 

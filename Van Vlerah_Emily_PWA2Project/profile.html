@@ -4,7 +4,8 @@
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link href="css/UI/jquery-ui.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -31,7 +32,7 @@
 </div>
 
 
-<div id="tabs">
+<div id="info">
     <ul>
         <li><a href="#tabs-1">Personal Information</a></li>
         <li><a href="#tabs-2">Account Information</a></li>
@@ -42,26 +43,43 @@
             <input type="text" id="first" name="first-name" placeholder="John" class="masterTooltip" title="Please enter your Name."/></label><br /><br/>
             <label class="title">Last Name:<br>
                 <input type="text" id="last" name="last-name" placeholder="Smith" class="masterTooltip" title="Please enter your Last Name."/></label><br /><br />
+        </p>
+        <p>
             <label class="title">Address:<br>
                 <input type="text" id="address" name="address" class="masterTooltip" title="Please enter your Address."/></label><br /><br />
             <label class="title">City:<br>
                 <input type="text" id="city" name="city" class="masterTooltip" title="Please enter your City."/></label><br /><br />
+            <label class="title">State:<br>
+                <input type="text" id="state" name="state" class="masterTooltip" title="Please enter your State."/></label><br /><br />
+        </p>
+        <div call="save">
+            <input type="submit" id="save" name="Save" value="Save"></input>
+        </div>
     </div>
     <div id="tabs-2">
         <h2>Account Information</h2>
         <p>Password:<br>
             <input type="password" id="password" name="password" required="required" placeholder="6-8 Characters" class="masterTooltip" title="Please enter a Password."/></label></p>
         <p>Confirm Password:<br>
-            <input type="password" id="confirmPass" name="password" required="required" class="masterTooltip" title="Please re-enter your Password."/></label><br /></p>    </div>
-</div>
+            <input type="password" id="confirmPass" name="password" required="required" class="masterTooltip" title="Please re-enter your Password."/></label><br /></p>
+        <label class="title">Email:<br>
+            <input type="text" id="email" name="email" placeholder="jsmith@example.com" class="masterTooltip" title="Please enter your email."/></label><br /><br/>
+        <label class="title">Confirm Email:<br>
+            <input type="text" id="confirmEmail" name="email" placeholder="jsmith@example.com" class="masterTooltip" title="Please re-enter your email."/></label></p>
+        <div call="save">
+            <input type="submit" id="save" name="Save" value="Save"></input>
+        </div>
+    </div>
+
+</div> <br>
+
 
 <div id="footer">
     <p> &#64;2014 Omni Flowers (this is a educational site made by a student)</p>
 </div>
 
-<script rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type='text/javascript' src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>
