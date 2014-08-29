@@ -8,7 +8,11 @@
 
 (function($){
 
-/****** Add Modal ******/
+/****** ========================================================================================== ******/
+/****** Project Page ******/
+
+    
+    /****** Add Modal ******/
     $('.modalClick').on('click', function(event){
         event.preventDefault();
         $('#overlay').fadeIn().find('#modal').fadeIn();
@@ -19,16 +23,11 @@
         $('#overlay').fadeOut().find('#modal').fadeOut();
     });
 
+    /****** Date picker for on the modal ******/
+    $( "#projectDueDate" ).datepicker();
 
 
-    /* Date picker for on the modal*/
-
-    $(function() {
-        $( "#projectDueDate" ).datepicker();
-    });
-
-
-/****** Fade Status Option ******/
+    /****** Fade Status Option ******/
     $('.mystatus').mouseover(function() {
         $(this).fadeTo(100, .3);
     });
@@ -38,7 +37,7 @@
     });
 
 
-/****** New Projects ******/
+    /****** New Projects ******/
     $('#addButton').on('click', function(){
         var projName = $('#projectName').val(),
             projFlo = $('#projectFlowers').val(),
@@ -52,7 +51,7 @@
             dataType: 'json',
             data: {
                 projectName: projName,
-                projectFlowers: projFlo,
+                projectDescription: projFlo,
                 projectAccents: projAcc,
                 dueDate: projDue,
                 status: status
@@ -71,10 +70,10 @@
     });
 
 
-/****** Get Projects ******/
-    var projects = function(){  //this starts your variable so you need projects(); to end your variable. Look at bottom 
+    /****** Get Projects ******/
+    var projects = function(){
         $.ajax({
-            url: 'xhr/get_projects.php', //added an s
+            url: 'xhr/get_projects.php',
             type: 'get',
             dataType: 'json',
             success:function(response){
@@ -82,9 +81,9 @@
                     console.log(response.error);
                 }else{
                     for(var i= 0, j=response.projects.length; i < j; i++){
-                      var result = response.projects[i]; //added an s
+                      var result = response.projects[i];
 
-                      $('.projects').append(  //This refers to the div on your projects.html page
+                      $('.projects').append(
                           '<div style = "border: 5px solid #a4a063">' + '<div style = "padding: 5px">' +
                           "<input class='projectid' type='hidden' value='" + result.id + "'>" +
                           "Project Name: " + result.projectName + "<br>" +
@@ -98,12 +97,13 @@
                       );
                     };
 
-                    $('.deletebtn').on('click', function(e){//Forgot the period in front of the deletebtn..thats what makes it a class.
+                    $('.deletebtn').on('click', function(e){
+						var pid = $(this).parent().find(".projectid").val();
                        console.log('test delete');
                         $.ajax({
                             url: 'xhr/delete_project.php',
                             data: {
-                                projectID: result.id
+                                projectID: pid
                             },
                             type: 'POST',
                             dataType: 'json',
@@ -123,21 +123,25 @@
         }
     })
 }
-projects();     //Had to add this.
+projects();
 
 
-    $(function() {
-        $( "#projectList" ).sortable();
-        $( "#projectList" ).disableSelection();
-    });
-
-
+    /****** Sortable UI ******/
+    $( "#projectList" ).sortable();
+    $( "#projectList" ).disableSelection();
 
 
 
 
 
-/****** Tabbed Accordion for Projects Page ******/
+
+
+
+/****** ========================================================================================== ******/
+/****** Admin Page ******/
+
+
+    /****** Tabbed Accordion for Projects Page ******/
     $('#tabs p').hide().eq(0).show();
     $('#tabs p:not(:first)').hide();
 
@@ -161,7 +165,13 @@ projects();     //Had to add this.
 
 
 
-/****** Login ******/
+
+
+/****** ========================================================================================== ******/
+/****** Index + Register Page ******/
+
+
+    /****** Login ******/
     $('#loginButton').click(function(){
         var user = $('#user').val();
         var pass = $('#pass').val();
@@ -189,7 +199,7 @@ projects();     //Had to add this.
     });
 
 
-/****** Logout ******/
+    /****** Logout ******/
     $('#logOut').click(function(e){
         e.preventDefault();
         $.get('xhr/logout.php', function(){
@@ -198,37 +208,33 @@ projects();     //Had to add this.
     });
 
 
-/****** Register ******/
-$('#register').click(function(){
-    var firstname = $('#first-name').val(),
-        lastname = $('#last-name').val(),
-        username = $('#user-name').val(),
-        email = $('#email').val(),
-        password = $('#password').val();
+    /****** Register ******/
+    $('#register').click(function(){
+        var username = $('#userName').val(),
+            email = $('#email').val(),
+            password = $('#password').val();
 
-    console.log(firstname+ '' +lastname+ '' +username+ '' +email+ '' +password);
+        console.log(username+ '' +email+ '' +password);
 
-    $.ajax({
-        url: 'xhr/register.php',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            firstname: firstname,
-            lastname: lastname,
-            username: username,
-            email: email,
-            password: password
-        },
+        $.ajax({
+            url: 'xhr/register.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                username: username,
+                email: email,
+                password: password
+            },
 
-        success:function(response){
-            if(response.error){
-                alert(response.error);
-            }else{
-                window.location.assign('admin.html');
+            success:function(response){
+                if(response.error){
+                    alert(response.error);
+                }else{
+                    window.location.assign('admin.html');
+                }
             }
-        }
+        });
     });
-});
 
 
 
@@ -237,43 +243,44 @@ $('#register').click(function(){
 
 
 
+/****** ========================================================================================== ******/
+/****** All buttons ******/
 
 
-
-/****** Project Page Button ******/
+    /****** Project Page Button ******/
     $('.projectsbtn').on('click', function(e){
         e.preventDefault();
         window.location.assign('projects.html');
     });
 
 
-/****** Profile Page Button ******/
+    /****** Profile Page Button ******/
     $('.profilebtn').on('click', function(e){
         e.preventDefault();
         window.location.assign('profile.html');
     });
 
 
-/****** Add Button ******/
+    /****** Add Button ******/
     $('.addButton').on('click', function(e){
         e.preventDefault();
         window.location.assign('#projectsList');
     });
 
 
-/****** Dashboard Button ******/
+    /****** Dashboard Button ******/
     $('.dashboard').on('click', function(e){
         e.preventDefault();
         window.location.assign('admin.html');
     });
 
-/****** Sign Up Button ******/
+    /****** Sign Up Button ******/
     $('.signupButton').on('click', function(e){
         e.preventDefault();
         window.location.assign('register.html');
     });
 
-/****** Sign Up Button ******/
+    /****** Sign Up Button ******/
     $('.save').on('click', function(e){
         e.preventDefault();
         window.location.assign('profile.html');
@@ -286,8 +293,11 @@ $('#register').click(function(){
 
 
 
+/****** ========================================================================================== ******/
+/****** Pages after Index and Register ******/
 
-/****** Display Username ******/
+
+    /****** Display Username ******/
     $.getJSON("xhr/check_login.php", function(data){
         console.log(data);
         $.each(data, function(key, val){
@@ -302,14 +312,18 @@ $('#register').click(function(){
 
 
 
+
+/****** ========================================================================================== ******/
 /****** Profile Page ******/
 
+
+    /****** Tabs UI ******/
     $(function() {
         $( "#info" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
         $( "#info li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 
 
-
+        /****** Autocomplete + Scrollable UI ******/
          var availableTags = [
              "Alabama",
              "Alaska",

@@ -3,8 +3,8 @@ Name: Emily Van Vlerah
 PWA2 1408
 */
 
-
-/*beginning*/
+/****** ========================================================================================== ******/
+/****** Default Settings ******/
 body {
     background-color: #deb767;
     padding: 20px;
@@ -30,10 +30,6 @@ header{
     box-shadow: 1px 1px 5px #8C7C71
 
 }
-
-
-
-/*link*/
 a{
     color: #b93739;
 }
@@ -43,7 +39,10 @@ a:hover{
 
 
 
-/*content*/
+
+
+/****** ========================================================================================== ******/
+/****** Content/Field Settings ******/
 div.img {
     height: 150px;
     width: 300px;
@@ -90,7 +89,11 @@ div.project{
 }
 
 
-/*input fields*/
+
+
+
+/****** ========================================================================================== ******/
+/****** Input Field Settings ******/
 input[id="first"]{
     border: 1px solid #a4a063;
     padding: 2px;}
@@ -157,7 +160,11 @@ input[type="password"]:hover{
     border: 1px solid #a4a063;}
 
 
-/*buttons*/
+
+
+
+/****** ========================================================================================== ******/
+/****** Button Settings ******/
 input[type="submit"] {
     background: linear-gradient(to bottom, #f3ece0 0%,#fe9090 23%,#b93739 100%);    border: 1px solid #b93739;
     color: #000;
@@ -272,7 +279,9 @@ button[type="save"]:hover {
 
 
 
-/*tool tip*/
+
+/****** ========================================================================================== ******/
+/****** Tool Tip Settings ******/
 .tooltip{
     display: none;
     position: absolute;
@@ -285,7 +294,11 @@ button[type="save"]:hover {
 }
 
 
-/*Modal*/
+
+
+
+/****** ========================================================================================== ******/
+/****** Modal Settings ******/
 #overlay{
     width: 100%;
     height: 150%;
@@ -347,7 +360,11 @@ input[type=radio]:checked + img{
 }
 
 
-/*Style for Tabs*/
+
+
+
+/****** ========================================================================================== ******/
+/****** Admin Tab Settings ******/
 #tabs{
     margin-bottom: 20px;
     background-color: #f3ece0;
@@ -375,12 +392,8 @@ input[type=radio]:checked + img{
 
 
 
-
-
-
-/*Profile Page*/
-
-
+/****** ========================================================================================== ******/
+/****** Profile Page Settings ******/
 .ui-tabs-vertical {
     width: 55em;
 
@@ -409,8 +422,6 @@ input[type=radio]:checked + img{
 
 .ui-tabs-vertical .ui-tabs-nav li a {
     display:block;
-
-
 }
 
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
@@ -456,7 +467,9 @@ input[type=radio]:checked + img{
 
 
 
-/*footer*/
+
+/****** ========================================================================================== ******/
+/****** Footer Settings ******/
 #footer{
     font-size: 12pt;
     text-align: center;
