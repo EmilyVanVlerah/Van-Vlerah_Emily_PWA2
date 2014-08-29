@@ -28,9 +28,6 @@
     });
 
 
-
-
-
 /****** Fade Status Option ******/
     $('.mystatus').mouseover(function() {
         $(this).fadeTo(100, .3);
@@ -203,9 +200,9 @@ projects();     //Had to add this.
 
 /****** Register ******/
 $('#register').click(function(){
-    var firstname = $('#first').val(),
-        lastname = $('#last').val(),
-        username = $('#userName').val(),
+    var firstname = $('#first-name').val(),
+        lastname = $('#last-name').val(),
+        username = $('#user-name').val(),
         email = $('#email').val(),
         password = $('#password').val();
 
