@@ -11,7 +11,7 @@
 /****** ========================================================================================== ******/
 /****** Project Page ******/
 
-    
+
     /****** Add Modal ******/
     $('.modalClick').on('click', function(event){
         event.preventDefault();
@@ -156,6 +156,7 @@ projects();
             $('#tabs ' + clicked).fadeIn('fast');
     }).eq(0).addClass('current');
 
+    /****** Tabs UI ******/
     $(function() {
         $( "#tabs" ).tabs();
     });
